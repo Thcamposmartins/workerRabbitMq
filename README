@@ -1,0 +1,26 @@
+# Exemplo de funcionamento do RabbitMq Em construção...  🚧
+
+##Esse é um projeto ainda em evolução para assimilar e aqrquivar conhecimentos de utilização de filas usando o RabbitMq e Docker.
+
+Para usar:
+- Faça o clone do repositório 
+- rode ```docker-compose up´´´ [não esquece de iniciar o docker se não estiver no linux]
+
+O Rabbit estará na porta 15672
+http://localhost:15672/
+user: admin
+pass: admin
+
+Publicar uma mensagem:
+  curl:  POST /express HTTP/1.1
+        Host: localhost:3001
+        Content-Type: application/json
+        Content-Length: 42
+
+        {
+            "name": "Thais Campos Martins !"
+        }
+
+Consumir uma mensagem:
+curl  GET /consumer HTTP/1.1
+      Host: localhost:3001
