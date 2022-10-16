@@ -1,5 +1,7 @@
 import express from 'express';
 import RabbitmqServer from '../rabbitmq-server';
+import Consumer from '../cron/Consumer';
+
 const router = express.Router();
 
 router.post('/express', async function (req, res){
@@ -14,6 +16,10 @@ router.get('/consumer', async (req, res) =>{
     const server = new RabbitmqServer('amqp://admin:admin@rabbitmq:5672');
     await server.start();
     await server.consume('nest', (message)=> res.send(message.content.toString()));
-})
+    //var myJob = new Consumer();
+    //myJob.cronJob.start();
+});
+
+
 
 export default router;
